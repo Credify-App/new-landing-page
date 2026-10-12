@@ -1,0 +1,310 @@
+:root {
+  --background: #f3f5f8;
+  --surface: #ffffff;
+  --ink: #0f1b2d;
+  --muted: #54627a;
+  --accent: #4536a0;
+  --accent-hover: #372b82;
+  --line: #d5dbe6;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: inherit; }
+
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  z-index: 50;
+  transform: translateY(-150%);
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
+.skip:focus { transform: none; }
+
+.wrap {
+  width: min(1100px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  height: 64px;
+  border-bottom: 1px solid var(--line);
+  background: var(--background);
+}
+
+.bar {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  font-weight: 650;
+  letter-spacing: 0.14em;
+  font-size: 15px;
+}
+
+.logo svg { width: 17px; height: 32px; }
+
+.nav-links {
+  display: none;
+  gap: 2rem;
+  color: var(--muted);
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.nav-links a { text-decoration: none; }
+.nav-links a:hover { color: var(--ink); }
+
+.actions { display: flex; gap: 0.75rem; align-items: center; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  border-radius: 999px;
+  font-weight: 550;
+  text-decoration: none;
+  border: 1px solid transparent;
+  height: 48px;
+  padding: 0 1.25rem;
+  font-size: 1rem;
+}
+
+.btn:active { transform: translateY(1px); }
+
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.btn-sm { height: 40px; padding: 0 1rem; font-size: 15px; }
+
+.btn-fill { background: var(--accent); color: #fff; }
+.btn-fill:hover { background: var(--accent-hover); }
+
+.btn-ghost {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: rgb(15 27 45 / 0.25);
+}
+
+.center { text-align: center; }
+
+h1, h2, h3 { font-weight: 550; letter-spacing: -0.03em; line-height: 1.1; margin: 0; }
+
+h1 {
+  max-width: 12ch;
+  margin-inline: auto;
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+}
+
+h2 { font-size: clamp(1.875rem, 3vw, 2.25rem); }
+
+.lede {
+  max-width: 42ch;
+  margin: 1.1rem auto 0;
+  color: var(--muted);
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.hero { padding: 3rem 0 1.5rem; }
+.hero .actions { justify-content: center; margin-top: 2rem; }
+.hero img { margin: 3rem auto 0; border-radius: 16px; }
+
+section { padding: 5rem 0; }
+
+#connect,
+#functions,
+#pricing,
+#setup {
+  scroll-margin-top: 80px;
+}
+
+.orbit {
+  border-radius: 16px;
+  background: #12141a;
+  padding: 2rem 1rem;
+  overflow: hidden;
+}
+
+.stage {
+  position: relative;
+  width: min(520px, 100%);
+  aspect-ratio: 1;
+  margin-inline: auto;
+}
+
+.rings {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.mark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  transform: translate(-50%, -50%);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.35);
+}
+
+.mark svg { width: 18px; height: 32px; }
+
+.orbit-list {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.orbit-list li { position: absolute; }
+
+.tile-wrap { transform: translate(-50%, -50%); }
+
+.tile {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.28);
+}
+
+.tile svg { width: 28px; height: 28px; }
+.tile span { font-size: 1.25rem; font-weight: 650; }
+
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+.functions {
+  display: grid;
+  gap: 2.5rem 4rem;
+  margin-top: 3rem;
+  padding: 0;
+  list-style: none;
+}
+
+.functions p, .split p, .steps p { color: var(--muted); margin: 0.5rem 0 0; max-width: 46ch; }
+
+.split {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.split ul { margin: 1.5rem 0 0; padding: 0; list-style: none; display: grid; gap: 0.75rem; }
+.split img { border-radius: 16px; }
+
+.pricing { background: var(--surface); }
+.price {
+  margin: 2.5rem 0 0;
+  text-align: center;
+  font-size: 3.75rem;
+  letter-spacing: -0.04em;
+}
+.price-label { text-align: center; color: var(--muted); font-size: 0.875rem; margin-top: 0.4rem; }
+.included {
+  width: min(720px, 100%);
+  margin: 2.5rem auto 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+  text-align: left;
+}
+
+.steps { display: grid; gap: 2.5rem; margin-top: 3rem; padding: 0; list-style: none; }
+
+.close h2 { max-width: 14ch; margin-inline: auto; }
+.close .actions { justify-content: center; margin-top: 2rem; }
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 2rem 0;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.foot {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.foot p { margin: 0.15rem 0; }
+.foot a { color: inherit; }
+.legal { display: flex; gap: 1.25rem; }
+.legal a { text-decoration: none; }
+.legal a:hover, .foot a:hover { color: var(--ink); }
+.product-name { color: var(--ink); font-weight: 600; }
+
+@media (min-width: 640px) {
+  .included { grid-template-columns: 1fr 1fr; column-gap: 2.5rem; }
+  .tile { width: 64px; height: 64px; }
+}
+
+@media (min-width: 768px) {
+  .functions { grid-template-columns: 1fr 1fr; }
+  .steps { grid-template-columns: repeat(3, 1fr); }
+  .foot { flex-direction: row; align-items: flex-end; justify-content: space-between; }
+}
+
+@media (min-width: 1024px) {
+  .nav-links { display: flex; }
+  h1 { max-width: 16ch; }
+  .split { grid-template-columns: 1fr 1fr; }
+  .hero { padding-top: 4rem; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .orbit-list { animation: spin 42s linear infinite; }
+  .tile { animation: spin 42s linear infinite reverse; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
